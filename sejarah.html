@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sejarah — PKBM Insan Kamil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#0F4D35;
+    --brand-dark:#0B3A28;
+    --brand-light:#E7F1EB;
+    --accent:#D6A33D;
+    --accent-dark:#B8862B;
+    --bg:#FBFAF6;
+    --card:#FFFFFF;
+    --text:#182620;
+    --text-muted:#5C6B62;
+    --border:#E7E5DA;
+    --shadow:0 10px 30px rgba(15,77,53,.08);
+    --shadow-sm:0 4px 14px rgba(15,77,53,.06);
+    --radius:18px;
+    --max:1080px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  h1,h2,h3{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-weight:700;
+    line-height:1.22;
+    margin:0;
+    color:var(--brand-dark);
+    letter-spacing:-.01em;
+  }
+  p{margin:0;}
+
+  .kicker{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .kicker .no{
+    font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:13px;
+    color:var(--brand);background:var(--brand-light);border-radius:100px;padding:4px 11px;
+  }
+  .kicker .label{font-size:13.5px;font-weight:600;color:var(--text-muted);}
+
+  /* Breadcrumb */
+  .crumb{background:var(--brand-dark);padding:12px 0;}
+  .crumb .wrap{display:flex;align-items:center;gap:6px;font-size:13px;color:#CFE0D6;}
+  .crumb a{color:#CFE0D6;opacity:.9;}
+  .crumb a:hover{opacity:1;text-decoration:underline;}
+  .crumb .sep{opacity:.5;}
+  .crumb .current{color:#fff;font-weight:600;}
+
+  /* Hero */
+  .hero{
+    background:
+      radial-gradient(900px 420px at 85% -10%, rgba(214,163,61,.18), transparent 60%),
+      linear-gradient(160deg,var(--brand-dark) 0%,var(--brand) 60%,#176B47 130%);
+    color:#F4F0E2;
+    padding:60px 0 56px;
+    text-align:center;
+  }
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;
+    color:#0F2E20;background:var(--accent);padding:7px 14px 7px 10px;border-radius:100px;margin-bottom:18px;
+  }
+  .badge .dot{width:6px;height:6px;border-radius:50%;background:#0F2E20;}
+  .hero h1{color:#fff;font-size:clamp(28px,3.8vw,42px);max-width:20ch;margin:0 auto;}
+  .hero p.lede{font-size:16.5px;color:#DCE7DD;max-width:56ch;margin:16px auto 0;}
+
+  section{padding:60px 0;}
+  section.tint{background:var(--brand-light);}
+
+  .section-head{max-width:64ch;margin-bottom:30px;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .section-head h2{font-size:clamp(22px,2.6vw,28px);}
+  .section-head p{margin-top:10px;color:var(--text-muted);font-size:15.5px;}
+
+  /* Latar belakang */
+  .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  .intro-grid p{color:var(--text-muted);font-size:15.5px;}
+  .intro-grid p + p{margin-top:14px;}
+  .intro-grid strong{color:var(--brand-dark);}
+
+  /* Timeline */
+  .timeline{position:relative;padding-left:36px;}
+  .timeline::before{
+    content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;
+    background:var(--border);
+  }
+  .t-item{position:relative;padding-bottom:32px;}
+  .t-item:last-child{padding-bottom:0;}
+  .t-item::before{
+    content:"";position:absolute;left:-36px;top:4px;width:20px;height:20px;
+    border-radius:50%;background:var(--card);border:3px solid var(--brand);
+  }
+  .t-item .when{
+    font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:13px;
+    color:var(--accent-dark);margin-bottom:6px;
+  }
+  .t-item .t-card{
+    background:var(--card);border:1px solid var(--border);border-radius:16px;
+    padding:20px 22px;box-shadow:var(--shadow-sm);
+  }
+  .t-item h3{font-size:16.5px;margin-bottom:6px;}
+  .t-item p{font-size:14.3px;color:var(--text-muted);}
+
+  /* Sambutan singkat / kutipan */
+  .quote-block{
+    background:linear-gradient(135deg,var(--brand-dark),var(--brand));
+    border-radius:24px;padding:40px 44px;color:#fff;position:relative;overflow:hidden;
+  }
+  .quote-block::before{
+    content:"";position:absolute;inset:0;opacity:.1;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 84 84'%3E%3Cg fill='none' stroke='%23FFFFFF' stroke-width='1'%3E%3Cpath d='M42 2 L82 42 L42 82 L2 42 Z'/%3E%3Ccircle cx='42' cy='42' r='20'/%3E%3C/g%3E%3C/svg%3E");
+    background-size:84px 84px;
+  }
+  .quote-block .quote-mark{position:relative;font-family:'Plus Jakarta Sans',sans-serif;font-size:40px;color:var(--accent);line-height:1;margin-bottom:6px;}
+  .quote-block blockquote{position:relative;font-size:19px;font-weight:600;line-height:1.55;max-width:60ch;margin:0 0 16px;}
+  .quote-block .name{position:relative;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;}
+  .quote-block .role{position:relative;font-size:13.5px;color:#CFE0D6;margin-top:2px;}
+
+  /* Capaian */
+  .card-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .stat-card{
+    background:var(--card);border:1px solid var(--border);border-radius:16px;
+    padding:22px 18px;box-shadow:var(--shadow-sm);
+  }
+  .stat-card b{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;color:var(--brand);margin-bottom:4px;}
+  .stat-card span{font-size:13px;color:var(--text-muted);}
+
+  /* CTA */
+  .cta{
+    background:linear-gradient(135deg,var(--brand-dark),var(--brand));
+    border-radius:24px;padding:44px 40px;color:#F4F0E2;
+    display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center;
+  }
+  .cta h2{color:#fff;font-size:24px;}
+  .cta p{color:#D8E4DB;margin-top:8px;font-size:14.5px;}
+  .cta-buttons{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:12px;
+    font-size:14.5px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;
+  }
+  .btn-primary{background:var(--accent);color:#0F2E20;}
+  .btn-outline{border:1.5px solid rgba(255,255,255,.45);color:#fff;}
+
+  footer.note{padding:26px 0 44px;font-size:12.5px;color:var(--text-muted);text-align:center;}
+
+  @media (max-width:860px){
+    .intro-grid{grid-template-columns:1fr;}
+    .card-grid-4{grid-template-columns:1fr 1fr;}
+    .quote-block{padding:30px 26px;}
+    .cta{grid-template-columns:1fr;padding:32px 24px;}
+    .cta-buttons{justify-content:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<div class="crumb">
+  <div class="wrap">
+    <a href="https://www.pkbminsankamil.sch.id/">Beranda</a><span class="sep">/</span>
+    <a href="https://www.pkbminsankamil.sch.id/p/profil.html">Profil</a><span class="sep">/</span>
+    <span class="current">Sejarah</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge"><span class="dot"></span>Perjalanan Lembaga</span>
+    <h1>Sejarah PKBM Insan Kamil</h1>
+    <p class="lede">Cerita singkat di balik berdirinya PKBM Insan Kamil — dari sebuah keprihatinan hingga menjadi rumah belajar yang terbuka bagi siapa pun.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span class="no">01</span><span class="label">Latar Belakang</span></div>
+    <div class="section-head">
+      <h2>Mengapa PKBM Insan Kamil didirikan</h2>
+    </div>
+    <div class="intro-grid">
+      <p>Di tengah masyarakat Sukamentri dan wilayah sekitarnya, masih ada warga yang belum sempat menuntaskan pendidikannya — sebagian putus sekolah karena keterbatasan ekonomi, sebagian belum melek aksara, dan sebagian lagi harus bekerja sejak usia muda sehingga tidak lagi punya ruang untuk kembali belajar.</p>
+      <p>Dari keprihatinan itulah gagasan mendirikan sebuah pusat kegiatan belajar masyarakat muncul: sebuah lembaga yang tidak hanya membuka kembali akses ijazah, tetapi juga membekali keterampilan hidup dan menanamkan akhlak yang baik — sehingga pendidikan benar-benar menjadi bekal untuk masa depan, bukan sekadar selembar kertas kelulusan.</p>
+      <p>Gagasan ini kemudian diwujudkan oleh <strong>Bubun Nursyaban, SH., MA</strong> bersama para penggerak pendidikan di Sukamentri, dengan nama <strong>Insan Kamil</strong> — manusia yang utuh: cerdas berpikir, mandiri berikhtiar, dan luhur berakhlak — sebagai arah sekaligus cita-cita lembaga.</p>
+      <p>PKBM Insan Kamil resmi berdiri pada tahun <strong>2024</strong> dan terdaftar dengan Nomor Pokok Sekolah Nasional (NPSN) <strong>P9999507</strong>, berkedudukan di Kelurahan Sukamentri, Kecamatan Garut Kota, Kabupaten Garut.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="wrap">
+    <div class="kicker"><span class="no">02</span><span class="label">Tonggak Awal</span></div>
+    <div class="section-head">
+      <h2>Perjalanan dari 2024 hingga kini</h2>
+      <p>Berikut tonggak-tonggak yang telah dilalui PKBM Insan Kamil sejak awal berdiri hingga peluncuran situs resminya.</p>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="when">2024 · Awal Tahun</div>
+        <div class="t-card">
+          <h3>Gagasan pendirian dirumuskan</h3>
+          <p>Diskusi dan penyusunan konsep lembaga dimulai, dilandasi keprihatinan terhadap warga sekitar yang belum memperoleh kesempatan belajar secara layak.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="when">2024 · Legalitas</div>
+        <div class="t-card">
+          <h3>PKBM Insan Kamil resmi terdaftar</h3>
+          <p>Lembaga memperoleh Nomor Pokok Sekolah Nasional (NPSN) P9999507 dan mulai beroperasi resmi di Kelurahan Sukamentri, Kecamatan Garut Kota.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="when">2024 · Pembukaan Layanan</div>
+        <div class="t-card">
+          <h3>Layanan belajar perdana dibuka</h3>
+          <p>Pendidikan kesetaraan Paket A, B, dan C, program keaksaraan, pelatihan keterampilan, serta pembinaan keislaman mulai berjalan untuk warga belajar angkatan pertama.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="when">2025 · Pertumbuhan</div>
+        <div class="t-card">
+          <h3>Layanan terus berkembang</h3>
+          <p>Warga belajar dari angkatan-angkatan berikutnya bergabung, dan program keterampilan &amp; kewirausahaan serta pembinaan keislaman berjalan semakin rutin.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="when">2026 · September</div>
+        <div class="t-card">
+          <h3>Situs resmi diluncurkan</h3>
+          <p>Kanal informasi dan pendaftaran daring resmi diluncurkan, agar warga yang membutuhkan layanan pendidikan lebih mudah menjangkau PKBM Insan Kamil.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span class="no">03</span><span class="label">Capaian Sejauh Ini</span></div>
+    <div class="section-head">
+      <h2>Bertumbuh sejak hari pertama</h2>
+    </div>
+    <div class="card-grid-4">
+      <div class="stat-card"><b>140+</b><span>Warga belajar aktif</span></div>
+      <div class="stat-card"><b>6</b><span>Program layanan terpadu</span></div>
+      <div class="stat-card"><b>2024</b><span>Tahun berdiri lembaga</span></div>
+      <div class="stat-card"><b>2026</b><span>Tahun peluncuran situs resmi</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="wrap">
+    <div class="kicker"><span class="no">04</span><span class="label">Catatan Pendiri</span></div>
+    <div class="quote-block">
+      <div class="quote-mark">"</div>
+      <blockquote>Kami memulai PKBM Insan Kamil dari hal sederhana: keinginan agar tidak ada lagi warga di sekitar kami yang tertinggal karena belum sempat bersekolah. Sejak 2024, kami terus belajar bersama setiap warga belajar yang datang, dan babak berikutnya masih akan terus kami tulis bersama.</blockquote>
+      <div class="name">Bubun Nursyaban, SH., MA</div>
+      <div class="role">Ketua PKBM Insan Kamil — Sukamentri, Garut Kota</div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="cta">
+      <div>
+        <h2>Jadilah bagian dari perjalanan kami selanjutnya.</h2>
+        <p>Baca visi &amp; misi kami, atau daftar sebagai warga belajar dan turut menulis babak berikutnya bersama PKBM Insan Kamil.</p>
+      </div>
+      <div class="cta-buttons">
+        <a class="btn btn-primary" href="https://www.pkbminsankamil.sch.id/p/kontak.html">Daftar sekarang</a>
+        <a class="btn btn-outline" href="https://www.pkbminsankamil.sch.id/p/visi-misi.html">Visi &amp; misi kami</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="note">
+  <div class="wrap">PKBM Insan Kamil · Sukamentri, Garut Kota — halaman ini dimuat dari GitHub dan ditampilkan melalui iframe.</div>
+</footer>
+
+<!-- ========================================================================
+CATATAN UNTUK PENGELOLA WEBSITE (hapus komentar ini bila sudah tidak perlu):
+
+PKBM Insan Kamil berdiri pada tahun 2024 dan situs resminya baru diluncurkan
+pada 2026, sehingga halaman ini disusun sebagai catatan latar belakang
+pendirian dan tonggak-tonggak sepanjang 2024–2026, bukan sejarah panjang
+bertahun-tahun sebelumnya. Mohon tonggak-tonggak (timeline) di atas ditinjau
+dan disesuaikan dengan tanggal/fakta pasti yang dimiliki pengurus (mis.
+tanggal SK pendirian, tanggal pembukaan kelas pertama, capaian tiap
+angkatan, dsb). Setiap tahun berikutnya, bagian "Tonggak Awal" dan "Capaian"
+dapat ditambah agar linimasa ini terus bertumbuh mengikuti perjalanan
+lembaga.
+======================================================================== -->
+</body>
+</html>
